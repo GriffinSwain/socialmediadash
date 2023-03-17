@@ -1,3 +1,9 @@
+// Griffin Parker
+// 3/17/2023
+// Social Media Dashboard
+// This React Application is designed to look like a design document that we were given.
+// It is designed to be responsivess on screen sizes '1440' and '375'
+
 import React, { useEffect, useState } from 'react';
 import Desktop from './Components/desktop';
 import Mobile from './Components/mobile';
