@@ -1,38 +1,361 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  margin: 0 10%;
+  margin-top: 20%;
+  background-color: hsl(230, 17%, 14%);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: Inter;
+  src: url(/src/Assets/Inter-Regular.ttf);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+  font-family: InterBold;
+  src: url(/src/Assets/Inter-Bold.ttf);
+}
+
+.topLightBg {
+  position: absolute;
+  z-index: -1;
+  max-width: 100% !important;
+  width: 100%;
+  height: 36%;
+  background-color: hsl(225, 100%, 98%);
+}
+
+.lightBg {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  z-index: -2;
+  max-width: 100% !important;
+  width: 100%;
+  height: 100%;
+}
+
+.topDarkBg {
+  position: absolute;
+  z-index: -1;
+  max-width: 100% !important;
+  width: 100%;
+  height: 34%;
+  background-color: hsl(232, 19%, 15%);
+}
+
+.darkBg {
+  position: absolute;
+  background-color: hsl(230, 17%, 14%);
+  z-index: -2;
+  max-width: 100% !important;
+  width: 100%;
+  height: 110%;
+}
+
+.darkBgMbl {
+  position: absolute;
+  background-color: hsl(230, 17%, 14%);
+  z-index: -2;
+  max-width: 100% !important;
+  width: 100%;
+  height: 460% !important;
+}
+
+.thinLine{
+  height: 0.5px;
+  width: 90%;
+}
+
+.overviewLight{
+ font-family: InterBold; 
+ color: hsl(228, 12%, 44%);
+}
+
+.overviewDark{
+  color: white;
+ font-family: InterBold; 
+}
+
+.textDark {
+  color: white;
+}
+
+.textLight {
+  color: hsl(230, 17%, 14%);
+}
+
+.textGray {
+  color: hsl(228, 12%, 44%);
+  font-family: InterBold;
+  font-size: 16px;
+  margin-top: 60px;
+  margin-left: -110px;
+}
+
+.textGrayMbl {
+  color: hsl(228, 12%, 44%);
+  font-family: InterBold;
+  font-size: 16px;
+  margin-top: 60px;
+  margin-left: -268px;
+}
+
+.followerText{
+  color: hsl(228, 12%, 44%);
+  font-family: Inter;
+  margin-top: -15px;
+}
+
+.cardLightBg {
+  background-color: hsl(227, 47%, 96%) !important;
+  border-color: #ff000000 !important;
+}
+
+.cardLight {
+  --bs-card-bg: hsla(228, 50%, 96%, 0) !important;
+  border-color: #ff000000 !important;
+}
+
+.cardDarkBg {
+  background-color: hsl(228, 28%, 20%) !important;
+  border-color: #fb000000 !important;
+}
+
+.cardDark {
+  --bs-card-bg: #fb000000 !important;
+  border-color: #fb000000 !important;
+}
+
+.squareContainer {
+  flex-direction: row;
+}
+
+.squareContainerMbl {
+  flex-direction: row;
+  margin-left: 5px;
+}
+
+.squareDark {
+  width: 300px;
+  height: 260px;
+  background-color: hsl(228, 28%, 20%);
+  justify-content: center;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 0px 0px 7px 7px;
+}
+
+.squareLight {
+  width: 300px;
+  height: 260px;
+  background-color: hsl(227, 47%, 96%);
+  justify-content: center;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 0px 0px 7px 7px;
+}
+
+.squareDark:hover {
+  background-color: hsl(229, 29%, 34%) !important;
+}
+
+.squareLight:hover {
+  background-color: hsl(229, 17%, 88%) !important;
+}
+
+.rectangleDark {
+  background-color: hsl(228, 28%, 20%);
+  border-color: #ff000000 !important;
+  width: 300px;
+  height: 130px;
+  /* justify-content: center; */
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 7px;
+}
+
+.rectangleLight {
+  background-color: hsl(227, 47%, 96%);
+  border-color: #ff000000 !important;
+  width: 300px;
+  height: 130px;
+  /* justify-content: center; */
+  margin-right: 15px;
+  margin-bottom: 15px;
+  border-radius: 7px;
+}
+
+.rectangleDark:hover {
+  background-color: hsl(229, 29%, 34%) !important;
+}
+
+.rectangleLight:hover {
+  background-color: hsl(229, 17%, 88%) !important;
+}
+
+.squareIcon {
+  margin-top: 20px;
+}
+
+.accentColor1 {
+  position: relative;
+  width: 300px;
+  height: 5.5px;
+  margin-top: 5px;
+  border-radius: 10px 10px 1px 1px;
+  background-color: hsl(208, 92%, 53%);
+}
+
+.accentColor2 {
+  position: relative;
+  width: 300px;
+  height: 6px;
+  margin-top: 5px;
+  border-radius: 10px 10px 1px 1px;
+  background-color: hsl(203, 89%, 53%);
+}
+
+.accentColor3 {
+  position: relative;
+  width: 300px;
+  height: 5.5px;
+  margin-top: 5px;
+  border-radius: 10px 10px 1px 1px;
+  background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+
+}
+
+.accentColor4 {
+  position: relative;
+  width: 300px;
+  height: 5.5px;
+  margin-top: 5px;
+  border-radius: 10px 10px 1px 1px;
+  background-color: hsl(348, 97%, 39%);
+}
+
+.card {
+  width: 75px;
+  height: 75px;
+  background-color: hsl(228, 28%, 20%);
+  margin-right: 15px;
+  margin-bottom: 15px;
+  float: left;
+}
+
+.rectangleContainer {
+  justify-content: space-around;
+  position: relative;
+}
+
+.numberTextDark {
+  color: white;
+  font-size: 65px;
+  font-family: InterBold;
+}
+
+.numberTextLight {
+  color: rgb(0, 0, 0);
+  font-size: 65px;
+  font-family: InterBold;
+}
+
+.numberTextSmLight {
+  position: absolute;
+  margin-right: 185px;
+  margin-top: 26px;
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-family: InterBold;
+}
+
+.numberTextSmDark {
+  position: absolute;
+  margin-right: 185px;
+  margin-top: 26px;
+  color: white;
+  font-size: 30px;
+  font-family: InterBold;
+}
+
+.logoText {
+  font-family: InterBold;
+  color: hsl(228, 34%, 66%);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.logoTextSm {
+  position: absolute;
+  margin-left: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: InterBold;
+  color: hsl(228, 34%, 66%);
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+.logoSm {
+  position: absolute;
+  margin-left: 225px;
+  /* margin-top: 13px; */
+}
+
+.percantageSm {
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 35px;
+  color: hsl(163, 72%, 41%);
+  font-size: 14px;
+  font-family: InterBold;
+}
+
+.greenText {
+  color: hsl(163, 72%, 41%);
+  font-size: 14px;
+  font-family: InterBold;
+  margin-top: 10px;
+}
+
+.greenTextSm {
+  color: hsl(163, 72%, 41%);
+  font-size: 14px;
+  font-family: InterBold;
+}
+
+.redText {
+  color: hsl(356, 69%, 56%);
+  font-size: 14px;
+  font-family: InterBold;
+  margin-top: 10px;
+}
+
+.redTextSm {
+  color: hsl(356, 69%, 56%);
+  font-size: 14px;
+  font-family: InterBold;
+}
+
+.switch{
+  margin-top: -35px; 
+  margin-right: 10px; 
+  /* transform: rotate(90deg); */
+}
+
+.dark-mode {
+  float: right;
+}
+
+.darkModeMbl {
+  margin-top: -20px;
+  margin-left: 280px;
+}
+
+.titleText {
+  font-family: InterBold;
+  margin-top: 50px;
+}
+
+.title {
+  margin-right: 50px;
 }

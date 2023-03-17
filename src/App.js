@@ -1,25 +1,52 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import Desktop from './Components/desktop';
+import Mobile from './Components/mobile';
 import './App.css';
 
 function App() {
+  const isMobile = window.matchMedia('(max-width: 400px)').matches;
+  const [debouncedIsMobile, setDebouncedIsMobile] = useState(isMobile);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setDebouncedIsMobile(window.matchMedia('(max-width: 400px)').matches);
+    };
+
+    const debouncedHandleResize = debounce(handleResize, 500);
+
+    window.addEventListener('resize', debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener('resize', debouncedHandleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (debouncedIsMobile !== isMobile) {
+      window.location.reload();
+    }
+  }, [debouncedIsMobile]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {isMobile ? <Mobile /> : <Desktop />}
+    </>
   );
 }
 
 export default App;
+
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    const later = function () {
+      timeout = null;
+      func.apply(context, args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
